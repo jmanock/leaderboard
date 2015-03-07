@@ -2,8 +2,47 @@
 <head>
   <meta charset="UTF-8">
   <title>LeaderBoard Test</title>
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <style>
+    body{
+      background-color:gray;
+    }
+    tr:nth-child(even){
+      background-color:orange;
+    }
+    tr:nth-child(odd){
+      background-color:black;
+      color:white;
+    }
+  </style>
 </head>
 <body>
-
+  <div class='container'>
+    <table id='leaderboardTable'>
+      <tr>
+        <th>Player</th>
+        <th>Score</th>
+        <th>Total</th>
+      </tr>
+    </table>
+  </div>
+  <script>
+    var LEADERBOARD_SIZE = 100;
+    var scoreListRef = new Firebase('https://toga.firebaseio.com');
+    var htmlForPath = {};
+    function handleScoreAdded(scoreSnapshot, prevScoreName){
+      var newScoreRow = $('<tr/>');
+      newScoreRow.append($('<td/>').append($('<em/>').text(scoreSnapshot.val().Name)));
+      newScoreRow.append($('<td/>').text(scoreSnapshot.val().Score));
+      newScoreRow.append($('<td/>').text(scoreSnapshot.val().Total));
+      htmlForPath[scoreSnapshot.key()] = newScoreRow;
+    }if(prevScoreName === null){
+      $('#leaderboardTable').append(newScoreRow);
+    }else{
+      var lowerScoreRow = htmlForPath[prevScoreName];
+      lowerScoreRow.after(newScoreRow);
+    }
+  </script>
 </body>
 </html>
