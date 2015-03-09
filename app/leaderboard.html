@@ -35,6 +35,9 @@
     .button:hover{
       background-color:red;
     }
+    input{
+      background-color:purple;
+    }
   </style>
 </head>
 <body>
@@ -50,15 +53,15 @@
       <th>Player</th>
       <th>Score</th>
       <th>Total</th>
-      <button class='testButton'>Test</button>
-      <button class='testButton'>Another Test</button>
+      <input type="submit" value='Testing'></input>
+
     </table>
   </div>
 
 <script src='pageLeaderboard.js'></script>
 <script>
   $(document).ready(function(){
-    $('button').click(function(){
+    $('input').click(function(){
       //$(this).addClass('touch');
       console.log('hello');
     })
