@@ -12,7 +12,7 @@ function handleScoreAdded(scoreSnapshot, prevScoreName){
   newScoreRow.append($('<td/>').append($('<em/>').text(scoreSnapshot.val().Name)));
   newScoreRow.append($('<td/>').text(scoreSnapshot.val().Score));
   newScoreRow.append($('<td/>').text(scoreSnapshot.val().Total));
-  newScoreRow.append($('<button/>').text('Add'));
+  newScoreRow.append($('<button class="button">Add</button>'));
 
   // Store a reference to the table row so we can get it later
   htmlForPath[scoreSnapshot.key()] = newScoreRow;
@@ -23,6 +23,7 @@ function handleScoreAdded(scoreSnapshot, prevScoreName){
     var lowerScoreRow = htmlForPath[prevScoreName];
     lowerScoreRow.after(newScoreRow);
   }
+  
 }
 
 
