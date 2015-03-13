@@ -5,7 +5,7 @@ function newScore(score, prev){
   var scoreRow = $('<tr/>');
   scoreRow.append($('<td/>').append($('<em>').text(score.val().Name)));
   scoreRow.append($('<td/>').text(score.val().Total));
-  scoreRow.append($('<button>Add</button>'));
+  scoreRow.append($('<button class="add" type="button">Add</button>'));
 
   htmlForPath[score.key()]= scoreRow;
   if(prev === null){
@@ -14,11 +14,11 @@ function newScore(score, prev){
     var lowerScoreRow = htmlForPath[prev];
     lowerScoreRow.after(scoreRow);
   }
-  $('button').one('click', function(){
-    var index = $('button').index(this);
-    //$(this).html(scoreRow);
-    $(scoreRow).appendTo('#playerLeaderboard');
+  $('.add').click(function(){
+    $('button').clone().appendTo('#playersList');
+
   });
+
 }
 var scoreListView = scoreList.limitToLast(200);
 scoreListView.on('child_added', function(score, prev){
