@@ -7,13 +7,17 @@
   <style>
     body{
       background-color:gray;
+      font-size:1.2em;
     }
-    tr:nth-child(even){
+    li:nth-child(even){
       background-color:orange;
     }
-    tr:nth-child(odd){
+    li:nth-child(odd){
       background-color:black;
-      color:white;
+      color:gray;
+    }
+    ul{
+      list-style-type:none;
     }
     .container{
       width:100%;
@@ -42,22 +46,31 @@
 </head>
 <body>
   <div class='container'>
-    <table id='leaderboardTable'>
+    <ul id='leaderboardTable'>
       <tr>
         <th>Player</th>
         <th>Total</th>
       </tr>
-    </table>
-    <table id='playersList'>
-      <th>Player</th>
-      <th>Score</th>
-      <th>Total</th>
-      <input type="submit" value='Testing'></input>
+    </ul>
+    <ul id='playersList'>
 
-    </table>
+    </ul>
+
   </div>
 
 <script>
+
+$.getJSON('https://toga.firebaseio.com/.json', function(data){
+  $.each(data, function(key, val){
+    //items.push( val.Name);
+    var player = val.Name;
+
+    $('#playersList').append('<li class="name">' + player + ' ' + val.Total + '</li>' );
+  });
+  $('.name').click(function(){
+    console.log('clicked me...');
+  })
+});
 
 </script>
 <script src='/scripts/pageLeaderboard.js'></script>

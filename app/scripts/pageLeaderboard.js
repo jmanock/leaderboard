@@ -1,10 +1,11 @@
 var scoreList = new Firebase('https://toga.firebaseio.com');
 var htmlForPath = {};
+var scoreRow;
 
 function newScore(score, prev){
-  var scoreRow = $('<tr/>');
-  scoreRow.append($('<td/>').append($('<em>').text(score.val().Name)));
-  scoreRow.append($('<td/>').text(score.val().Total));
+  scoreRow = $('<ul/>');
+  scoreRow.append($('<li/>').append($('<em>').text(score.val().Name)));
+  scoreRow.append($('<li/>').text(score.val().Total));
   scoreRow.append($('<button class="add" type="button">Add</button>'));
 
   htmlForPath[score.key()]= scoreRow;
@@ -15,12 +16,11 @@ function newScore(score, prev){
     lowerScoreRow.after(scoreRow);
   }
   $('.add').click(function(){
-    $('button').clone().appendTo('#playersList');
-
+    console.log('Helllo');
   });
-
 }
 var scoreListView = scoreList.limitToLast(200);
 scoreListView.on('child_added', function(score, prev){
   newScore(score,prev);
+
 });
