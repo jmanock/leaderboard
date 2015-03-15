@@ -24,7 +24,6 @@
       margin:0 auto;
     }
     #leaderboardTable{
-      border:1px solid red;
       float:left;
       width:40%;
     }
@@ -42,15 +41,15 @@
     input{
       background-color:purple;
     }
+    .total{
+      float:right;
+    }
   </style>
 </head>
 <body>
   <div class='container'>
     <ul id='leaderboardTable'>
-      <tr>
-        <th>Player</th>
-        <th>Total</th>
-      </tr>
+
     </ul>
     <ul id='playersList'>
 
@@ -65,12 +64,14 @@ $.getJSON('https://toga.firebaseio.com/.json', function(data){
     //items.push( val.Name);
     var player = val.Name;
 
-    $('#playersList').append('<li class="name">' + player + ' ' + val.Total + '</li>' );
+    $('#leaderboardTable').append('<li class="name">' + player + '<em class="total">' + val.Total +'</em>' + '</li>' );
   });
-  $('.name').click(function(){
-    console.log('clicked me...');
+  $('li').prepend('<input class="add" type="submit" value="Add">');
+  $('input').click(function(){
+    
   })
 });
+
 
 </script>
 <script src='/scripts/pageLeaderboard.js'></script>
