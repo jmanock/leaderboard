@@ -44,20 +44,18 @@
     }
   </style>
 </head>
-<body ng-controller='PlayerCtrl'>
-  <a href="angularTest.html">Testing Ground</a>
-<ul id='leaderboardTable'>
-  <li ng-repeat='player in players'>{{player.Name}}
-  <button class='add' ng-click=''>Add Player</button>
-  </li>
-
-</ul>
-<ul id='playersList'>
-
-</ul>
+<body>
+  <div ng-controller='MainCtrl'>
+    <ul>
+      <li ng-repeat='golfer in golfers'>{{golfer.Name}}
+      <button ng-click='golfers.$remove(golfer)'>Remove</button></li>
+    </ul>
+    <ul ng-controller='PlayerCtrl'>
+      <li ng-repeat='player in players'>{{player.Name}}
+      <button ng-click='golfers.$add(player)'>Add</button></li>
+    </ul>
+  </div>
 <script src='/scripts/pageLeaderboard.js'></script>
-<script>
 
-</script>
 </body>
 </html>
