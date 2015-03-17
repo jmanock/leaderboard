@@ -19,7 +19,7 @@
      <!-- <li ng-repeat='message in messages'>{{message.name}} : {{message.description}}
       <button ng-click='messages.$remove(message)'>Remove Message</button>
          </li> -->
-    <li ng-repeat='golfer in golfers'>{{golfer.Name}} | {{golfer.Total}}
+    <li ng-repeat='golfer in golfers | orderBy:"-Total"'>{{golfer.Name}} | {{golfer.Total}}
     <button ng-click='golfers.$remove(golfer)'>Remove Golfer</button></li>
   </ul>
 
