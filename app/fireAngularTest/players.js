@@ -30,14 +30,11 @@ myapp.controller('BookCtrl', function($scope, $firebaseArray){
   $scope.addMessage = function(){
     var name = $scope.newNameTest;
     var total = $scope.newDescriptionTest;
-    if(name.length === 3){
-      console.log('Rules are working');
-    }else{
-    $scope.golfers.$add({
-      Name: name,
-      Total: total
-    });
-  }
+
+          $scope.golfers.$add({
+            Name: name,
+            Total: total
+          });    
   };
 
 });
