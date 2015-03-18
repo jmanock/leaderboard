@@ -1,11 +1,32 @@
-<div ng-repeat='post in posts'>
-  <a ng-href="{{post.url}}">{{post.title}}</a>
-  <a ng-click='deletePost($index)'>Delete</a>
+<head>
+  <title>Log in shit</title>
+  <script src='https://cdn.firebase.com/js/client/2.2.2/firebase.js'></script>
+  <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
+  <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+  <script src='testing.js'></script>
+</head>
+<div id="dialog-register" title="Register new user">
+    <form>
+        <fieldset>
+            <label for="name">Email</label>
+            <input type="text" name="email" id="register-email" class="text ui-widget-content ui-corner-all" />
+            <label for="password">Password</label>
+            <input type="password" name="password" id="register-password" value="" class="text ui-widget-content ui-corner-all" />
+        </fieldset>
+    </form>
 </div>
-<form ng-submit='submitPost()'>
-  <input type="text" ng-model='post.title'/>
-  <input type="text" ng-model='post.url'/>
-  <input type="submit" value='Add Post'/>
-</form>
-Posts: {{ posts }} <br>
-Post: {{ post }}
+<div id="dialog-login" title="Login user">
+    <form>
+        <fieldset>
+            <label for="name">Email</label>
+            <input type="text" name="email" id="login-email" class="text ui-widget-content ui-corner-all" />
+            <label for="password">Password</label>
+            <input type="password" name="password" id="login-password" value="" class="text ui-widget-content ui-corner-all" />
+        </fieldset>
+    </form>
+</div>
+<button id="opener-register">Register</button>
+<button id="opener-login">Login</button>
+<button id="opener-logout">Logout</button>
+<br />
+<input id="data" />
