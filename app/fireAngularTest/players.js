@@ -27,6 +27,16 @@ myapp.controller('BookCtrl', function($scope, $firebaseArray){
   //$scope.messages = $firebaseArray(ref);
   $scope.golfers = $firebaseArray(ref);
 
+  ref.createUser({
+    email:'',
+    password:
+  }, function(error, userData){
+    if(error){
+      console.log("Error creating user:", error);
+    }else{
+      console.log('Successfully create user acount with uid', userData.uid);
+    }
+  });
   $scope.addMessage = function(){
     var name = $scope.newNameTest;
     var total = $scope.newDescriptionTest;
@@ -34,7 +44,7 @@ myapp.controller('BookCtrl', function($scope, $firebaseArray){
           $scope.golfers.$add({
             Name: name,
             Total: total
-          });    
+          });
   };
 
 });
