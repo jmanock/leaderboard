@@ -43,7 +43,7 @@ app.service('authService', function(){
 				  if (authData) {
 				  	authData.name = user.name;
 				  	authData.timestamp = new Date().toISOString();
-				    firebaseLogin.child('users').child(authData.uid.replace('simplelogin:', '')).set(authData);
+				    firebaseLogin.child('Users').child(authData.uid.replace('simplelogin:', '')).set(authData);
 				    cb(authData);
 				  } else {
 				  	console.log('something went wrong');
