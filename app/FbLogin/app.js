@@ -5,7 +5,7 @@ $('button').click(function(){
     if(error){
       console.log('Login Failed you son of a bitch', error);
     }else{
-      var usersRef = ref.child('users').child(authData.uid);
+      var usersRef = ref.child('users').child(authData.uid); 
       var name = authData.facebook.displayName;
       var id = authData.uid;
       console.log(authData);
