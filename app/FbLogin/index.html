@@ -1,17 +1,19 @@
-<html>
+<html ng-app='Leaderboard'>
 <head>
   <meta charset="UTF-8">
-  <title>Facebook Login with Firebase</title>
-  <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
-  <script src='https://cdn.firebase.com/js/client/2.2.3/firebase.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js'></script>
+  <title>Facbook Login with Angular</title>
 </head>
 <body>
-<h1>Facebook Login with Firebase</h1>
-<button class='login'>Facbook</button><br>
-<div class='fb'>
+  <h1>Welcome!!!</h1>
+<div ui-view ng-controller='MainCtrl as app'></div>
 
-</div>
-<script src='app.js'></script>
+  <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js'></script>
+  <script src='https://cdn.firebase.com/js/client/2.2.3/firebase.js'></script>
+  <script src='https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js'></script>
+  <script src='index.js'></script>
+  <script src='angular.js'></script>
+  <script src='profile.js'></script>
 </body>
 </html>

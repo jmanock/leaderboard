@@ -1,20 +1,14 @@
-<html ng-app='something'>
-<head>
-  <meta charset="UTF-8">
-  <title>Facbook Login with Angular</title>
-  <script src='https://cdn.firebase.com/js/client/2.2.3/firebase.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js'></script>
-</head>
-<body ng-controller='MainCtrl'>
-  <h1>This is going to work in angular!!!</h1>
+<div>
+  <p ng-show='app.user'></p>
   <div ng-hide='app.user'>
+    <p>Login, create your profile, and start picking</p>
     <button ng-click='app.login()'>Login with Facebook</button>
   </div>
   <div ng-show='app.user'>
-    <button ng-click='app.logout()'></button>
+    <p>Welcome back, {{app.user.facebook.displayName}}</p>
+    <img src="{{app.user.facebook.cachedUserProfile.picture.data.url}}" alt="">
+    <button ng-click='app.logout()'>Log Out</button>
+    <button ui-sref='profile'>Enter</button>
   </div>
-  <h3>{{name}}</h3>
-  <h3>{{image}}</h3>
-  <script src='angular.js'></script>
-</body>
-</html>
+
+</div>
