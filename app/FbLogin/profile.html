@@ -9,7 +9,7 @@
   <ul id='players'>
     <h3>Players</h3>
     <li ng-repeat='player in profile.players'>{{player.Name}}
-      <button ng-click='profile.addPlayer(profile.players[$index])'>Add</button></li>
+      <button ng-click='players.$add(player)'>Add</button></li>
   </ul>
   <ul id='team'>
     <h3>My Team</h3>

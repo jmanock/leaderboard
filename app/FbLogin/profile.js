@@ -1,8 +1,11 @@
 'use strict';
 angular.module('Leaderboard')
-  .controller('ProfileCtrl',function($scope, $firebaseObject){
-    var ref = new Firebase('https://toga.firebaseio.com');
-    var syncObject = $firebaseObject(ref);
-    syncObject.$bindTo($scope, 'profile.players');
+  .controller('ProfileCtrl',function($scope, FirebaseUrl, $http){
+        $http.get('https://toga.firebaseio.com/.json')
+        .success(function(data){
+          angular.forEach(data, function(value, key){
+            console.log(value.Name + key);
+          });
+        });
 
-  });
+});
