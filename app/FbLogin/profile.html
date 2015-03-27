@@ -8,7 +8,7 @@
   <p>Welcome, {{profile.currentUser.facebook.displayName}}</p>
   <ul id='players'>
     <h3>Players</h3>
-    <li ng-repeat='player in profile.players'>{{player.Name}}
+    <li ng-repeat='player in players'>{{player.Name}}
       <button ng-click='players.$add(player)'>Add</button></li>
   </ul>
   <ul id='team'>

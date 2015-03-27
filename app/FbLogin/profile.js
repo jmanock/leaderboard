@@ -4,7 +4,7 @@ angular.module('Leaderboard')
         $http.get('https://toga.firebaseio.com/.json')
         .success(function(data){
           angular.forEach(data, function(value, key){
-            console.log(value.Name + key);
+            $scope.players = value.Name;
           });
         });
 
