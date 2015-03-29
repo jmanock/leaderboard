@@ -8,7 +8,7 @@
     <p>Welcome back, {{app.user.facebook.displayName}}</p>
     <img src="{{app.user.facebook.cachedUserProfile.picture.data.url}}" alt="">
     <button ng-click='app.logout()'>Log Out</button>
-    <button ui-sref='profile'>Enter</button>
+    <button ui-sref='profile({id:app.user.uid})'>Enter</button>
   </div>
 
 </div>

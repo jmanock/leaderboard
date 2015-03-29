@@ -1,19 +1,15 @@
-<h1>This is going to be the profile and pics page!!!</h1>
+
 <p>Welcome back, {{app.user.facebook.displayName}}</p>
 <img src="{{app.user.facebook.cachedUserProfile.picture.data.url}}" alt="">
 <button ng-click='app.logout()'>Logout</button>
 
-<ul id='team'>
-  <h3>My Team</h3>
-    <li ng-repeat='golfer in golfers'>{{golfer.Name}}
-    <button ng-click='golfers.$remove(golfer)'>Remove</button></li>
-</ul>
-<div ng-controller='ProfileCtrl as profile'>
-  <p>Welcome, {{profile.currentUser.facebook.displayName}}</p>
-  <ul id='players'>
+<div ng-controller='SearchCtrl as search'>
+  <ul>
     <h3>Players</h3>
-    <li ng-repeat='player in players'>{{player.Name}}
-      <button ng-click='golfers.$add(player)'>Add</button></li>
+    <li ng-repeat='player in search.players' style='list-style-type:none'>
+      {{player.Name}}
+      <button ng-click='search.addPlayer(search.players[$index])'>Add Player</button>
+    </li>
   </ul>
 
 </div>

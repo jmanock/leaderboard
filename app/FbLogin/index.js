@@ -13,9 +13,9 @@ angular.module('Leaderboard', ['ui.router', 'firebase'])
     controller: 'MainCtrl'
   })
   .state('profile',{
-    url: '/profile',
+    url: '/profile/:id',
     templateUrl: 'profile.html',
-    controller: 'ProfileCtrl'
+    controller: 'SearchCtrl'
   });
   $urlRouterProvider.otherwise('/');
 });
