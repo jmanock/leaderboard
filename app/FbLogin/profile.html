@@ -4,12 +4,16 @@
 <button ng-click='app.logout()'>Logout</button>
 
 <div ng-controller='SearchCtrl as search'>
-  <ul>
+  <ul id='players'>
     <h3>Players</h3>
     <li ng-repeat='player in search.players' style='list-style-type:none'>
       {{player.Name}}
       <button ng-click='search.addPlayer(search.players[$index])'>Add Player</button>
     </li>
   </ul>
-
+  <ul id='team'>
+    <h3>Team</h3>
+    <li ng-repeat='(id, team) in search.teams' style='list-style-type:none'>{{team.name}}
+    <button ng-click='search.removeItem(id)'>Remove</button></li>
+  </ul>
 </div>
