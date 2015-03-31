@@ -1,0 +1,14 @@
+<div>
+  <p ng-show='app.user'></p>
+  <div ng-hide='app.user'>
+    <p>Login, create your profile, and start picking</p>
+    <button ng-click='app.login()'>Login with Facebook</button>
+  </div>
+  <div ng-show='app.user'>
+    <p>Welcome back, {{app.user.facebook.displayName}}</p>
+    <img src="{{app.user.facebook.cachedUserProfile.picture.data.url}}" alt="">
+    <button ng-click='app.logout()'>Log Out</button>
+    <button ui-sref='profile({id:app.user.uid})'>Enter</button>
+  </div>
+
+</div>

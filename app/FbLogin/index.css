@@ -1,0 +1,8 @@
+#team{
+  float:right;
+  background:gray;
+}
+#players{
+  float:left;
+  background:orange;
+}
